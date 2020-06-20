@@ -28,7 +28,6 @@ router.post('/users/login',async(req,res)=>{
     const token = await user.generateAuthToken()
     res.send({user,token})
   } catch (e) {
-    console.log(e)
     res.status(400).send()
   }
 })
@@ -103,7 +102,6 @@ router.post('/users/logoutAll',auth,async(req,res)=>{
         sendCancelEmail(req.user.email,req.user.name)
         res.send(req.user)
     } catch (e) {
-      console.log(e)
         res.status(500).send()
     }
 })
